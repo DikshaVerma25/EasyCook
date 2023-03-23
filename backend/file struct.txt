@@ -1,0 +1,30 @@
+Create a new src folder and create the following files inside it:
+
+index.ts - This will be the entry point of the application, where you will start the server and connect to the database.
+
+app.ts - This file will contain the configuration of the Express app and middleware.
+
+database.ts - This file will contain the configuration of the database connection.
+
+models/User.ts - This file will define the schema for the User model.
+
+resolvers/user.ts - This file will contain the GraphQL resolvers for the User model.
+
+schema/user.graphql - This file will contain the GraphQL schema for the User model.
+
+Create a new src folder and create the following files inside it:
+
+index.ts - This will be the entry point of the application, where you will start the server and connect to the database.
+
+app.ts - This file will contain the configuration of the Express app and middleware.
+
+database.ts - This file will contain the configuration of the database connection.
+
+models/User.ts - This file will define the schema for the User model.
+
+resolvers/user.ts - This file will contain the GraphQL resolvers for the User model.
+
+schema/user.graphql - This file will contain the GraphQL schema for the User model.
+Set up the index.ts file to start the server and connect to the database. You will need to create a new instance of the Apollo Server and pass in the schema and resolvers, as well as configure the Express app to use the Apollo Server as middleware.
+
+Test the login functionality by using a GraphQL client such as Apollo Studio or Postman to send a login query to the server. The query should include the user's email and password, and should return a JSON Web Token (JWT) that can be used to authenticate subsequent requests.

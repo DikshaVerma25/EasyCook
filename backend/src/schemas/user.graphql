@@ -1,0 +1,21 @@
+type User{
+    id: ID!
+    FirstName: String 
+    LastName: String 
+    email: String!
+}
+
+//The AuthPayload type describes the structure of the response object that is returned when a user successfully logs in
+
+type AuthPayload{
+    token: String!
+}
+
+input LoginInput{
+    email: String!
+    password: String!
+}
+
+type Mutation{
+    login( input: LoginInput!): AuthPayload!
+}
