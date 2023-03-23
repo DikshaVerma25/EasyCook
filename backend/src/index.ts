@@ -1,15 +1,52 @@
+// entry point
+
 import { ApolloServer } from 'apollo-server-express';
 import express, { Application } from "express";
 const mongoose = require('mongoose');
 require('dotenv').config();
+import { typeDefs } from './schemas';
+import { resolvers } from './resolvers';
+import jwt from 'jsonwebtoken';
 
 
-const app: Application = express();
+
+const app = express();
+
 const port: number = 3000;
+const JWT_SECRET: string = process.env.JWT_SECRET!;
+
 
 app.listen(port, () => console.log("app listening"));
 
 const db: string = process.env.MONGODB_URI!;
+
+const server = new ApolloServer ({
+    typeDefs,
+    resolvers,
+    context: ({req}) => {
+
+        const token = req.headers.authorization || '' ;
+        
+        try{
+            const JWT_SECRET = process.env.JWT_SECRET;
+
+            if (!JWT_SECRET) {
+            throw new Error('JWT_SECRET is not defined');
+            }
+
+            const { userId } = jwt.verify(token, JWT_SECRET) as { userId: string };
+
+
+
+            return {userId};
+        }catch(err){
+            throw Error ('Invalid token');
+        }
+
+    },
+});
+
+server.applyMiddleware({app});
 
 mongoose.connect(db, {useNewUrlParser: true})
     .then(() => console.log("Mongo listening"))
