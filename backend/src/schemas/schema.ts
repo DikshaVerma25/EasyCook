@@ -1,7 +1,7 @@
 import { GraphQLObjectType, GraphQLSchema, GraphQLString, GraphQLNonNull,  GraphQLID} from "graphql";
-import {User} from "../models/user"
+import {IUser} from "../models/user"
 
-const UserType : GraphQLObjectType<User> = new GraphQLObjectType({
+const UserType : GraphQLObjectType<IUser> = new GraphQLObjectType({
     name: "User",
     fields: () => ({
         id: { type: new GraphQLNonNull(GraphQLID)},

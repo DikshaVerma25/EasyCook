@@ -2,12 +2,14 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import { User, IUser } from '../models/User';
 
+
+
 const JWT_SECRET = 'my_secret_key';
 
 interface ILoginInput{
 
     email: String;
-    password: String;
+    password: string;
 
 }
 
