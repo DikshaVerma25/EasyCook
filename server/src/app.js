@@ -1,38 +1,46 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const session = require('express-session');
-const MongoDBStore = require('connect-mongodb-session')(session);
-const authRoutes = require('./routes/authRoutes');
+const morgan = require('morgan');
+const dotenv = require('dotenv');
+const authRoutes = require('./routes /authRoutes');
+const userRoutes = require('./routes /userRoutes.js');
+
+dotenv.config();
+
+console.log("before env")
+console.log(process.env.MONGODB_URI);
+console.log("check");
 
 const app = express();
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/Cook', { useNewUrlParser: true, useUnifiedTopology: true });
+app.use(morgan('dev'));
+app.use(express.json());
 
-// Set up session store
-const store = new MongoDBStore({
-  uri: 'mongodb://localhost:27017/Cook',
-  collection: 'sessions'
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true
+})
+  .then(() => console.log('MongoDB connected'))
+  .catch(error => console.error(error));
+
+app.use('/auth', authRoutes);
+app.use('/user', userRoutes);
+
+app.use((req, res) => {
+  res.status(404).json({
+    message: 'Not Found'
+  });
 });
-// Catch errors
-store.on('error', function(error) {
-  console.error(error);
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({
+    message: 'Internal Server Error'
+  });
 });
 
-// Set up session middleware
-app.use(session({
-  secret: 'mysecret',
-  resave: false,
-  saveUninitialized: true,
-  store: store
-}));
-
-// Set up middleware to parse request bodies
-app.use(express.urlencoded({ extended: true }));
-
-// Set up view engine
-app.set('view engine', 'ejs');
-
-// Set up routes
-app.use('/', authRoutes);
-
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server started on port ${port}`);
+});
