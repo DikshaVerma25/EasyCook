@@ -8,7 +8,7 @@ const userRoutes = require('./routes /userRoutes.js');
 dotenv.config();
 
 // Set the MONGODB_URI environment variable
-process.env.MONGODB_URI = 'mongodb://localhost:27017/EasyCook';
+process.env.MONGODB_URI = 'mongodb://localhost:27017/ac';
 
 // Check if the variable is defined
 console.log(process.env.MONGODB_URI);
