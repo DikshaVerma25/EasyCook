@@ -7,4 +7,4 @@ A web application that will allow the user to search recipes by giving the ingre
 Below is the expected landing page for the web application
 
 
-![IMG-20230508-WA0002](https://github.com/DikshaVerma25/EasyCook-/assets/71563921/45e23078-9c0e-4768-8d06-6991e93dadf4)
+![Test](https://github.com/DikshaVerma25/EasyCook-/assets/71563921/9a45143d-57dc-48a1-9bac-d7acc70d9ebf)
