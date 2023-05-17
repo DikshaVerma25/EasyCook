@@ -1,0 +1,43 @@
+.navbar {
+    background-color: #FFC655;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .easycook {
+    color: #40532E;
+    font-weight: bold;
+    font-size: 26px;
+    margin-right: 50px;
+    text-decoration: none;
+  }
+
+  .nav-symbol {
+    font-size: 1.2em;
+    vertical-align: middle;
+  }
+  
+  .nav-menu {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-item {
+    margin-right: 50px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+  }
+  
+  .nav-link:hover {
+    color: #f5f5f5;
+  }
+  
+.easycook {
+    font-size: 3em;
+    color: #40532E;
+  }
+  
+  

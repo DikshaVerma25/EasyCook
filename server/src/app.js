@@ -2,13 +2,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
-const authRoutes = require('./routes /authRoutes');
-const userRoutes = require('./routes /userRoutes.js');
+const authRoutes = require('./routes/ authRoutes');
+const userRoutes = require('./routes/userRoutes.js');
 
 dotenv.config();
 
 // Set the MONGODB_URI environment variable
-process.env.MONGODB_URI = 'mongodb://localhost:27017/ac';
+// process.env.MONGODB_URI = 'mongodb://localhost:27017/EasyCook';
 
 // Check if the variable is defined
 console.log(process.env.MONGODB_URI);

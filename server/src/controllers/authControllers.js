@@ -1,4 +1,4 @@
-const User = require('../models/user');
+const User = require('../models/ser');
 const jwt = require('../utils/jwt');
 
 async function signup(req, res) {
