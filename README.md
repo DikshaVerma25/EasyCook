@@ -8,3 +8,7 @@ Below is the expected landing page for the web application
 
 
 ![Test](https://github.com/DikshaVerma25/EasyCook-/assets/71563921/9a45143d-57dc-48a1-9bac-d7acc70d9ebf)
+
+## Wireframe
+
+https://www.figma.com/file/xAjeH9Eg0UWEiVnQUQbo8o/EasyCook-Wireframe?type=design&node-id=0%3A1&t=HuHwiyCJ5LrMHOtF-1
