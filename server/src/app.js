@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const authRoutes = require('./routes /authRoutes');
 
-//const userRoutes = require('./routes /userRoutes.js');
+const userRoutes = require('./routes /userRoutes.js');
 // import authRoutes from "./routes/authRoutes"
 
 require("dotenv").config();
