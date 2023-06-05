@@ -4,11 +4,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+}
+
+.navbar-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
 }
 
 .navbar-title {
   display: flex;
   align-items: center;
+
 }
 
 .navbar-title-text {
@@ -28,7 +37,6 @@
   text-align:right;
   align-items: right;
   margin-left: auto; 
-  float: right;/* Add this line to push the menu items to the right */
 }
 .easycook {
   color: #383847;
