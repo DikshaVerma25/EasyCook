@@ -4,13 +4,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
 }
 
 .navbar-container{
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  z-index: 1;
   width: 100vw;
 }
 
@@ -33,10 +32,14 @@
 }
 
 .nav-menu {
+  color: #40404E; 
+  position: relative;
   display: flex;
   text-align:right;
   align-items: right;
-  margin-left: auto; 
+  margin-left: 5px; 
+  left: -100px;
+  z-index: 1;   
 }
 .easycook {
   color: #383847;
@@ -49,8 +52,8 @@
 .nav-item {
   margin-right: 50px;
   text-decoration: none;
-  color: #fff;
   font-size: 18px;
+  color: #40404E;
 }
 .navbar-title-line {
   flex-grow: 1;
@@ -61,3 +64,17 @@
 .nav-link:hover {
   color: #f5f5f5;
 }
+.dropdown-arrow {
+  color: red;
+  margin-left: 5px;
+  display: inline-block;
+  border-radius: 50%;
+  justify-content: center;
+  border: 1px solid red;
+  padding: 2px;
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  line-height: 16px;
+}
+

@@ -12,7 +12,10 @@ function Navbar() {
           <hr className="navbar-title-line" />
         </div>
         <div className="nav-menu">
-          <a href="/" className="nav-item nav-link">Recipes</a>
+            <a href="/" className="nav-item nav-link">
+              Recipes
+            <span className="dropdown-arrow">&#9662;</span>
+            </a>
           <a href="/about" className="nav-item nav-link">Signup</a>
           <a href="/contact" className="nav-item nav-link">About</a>
         </div>

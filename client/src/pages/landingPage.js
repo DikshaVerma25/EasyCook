@@ -9,13 +9,13 @@ function LandingPage() {
       <Navbar />
       <div className="landing-container">
         <h1>Your Indregients our recipies</h1>
+        <div className="left-image-container">
+        <img src={image} alt="Image" className="left-image" />
+        </div>
         <div className="symbol-container">
           <div className="symbol turnip"></div>
           <div className="symbol grape"></div>
           <div className="symbol mango"></div>
-        </div>
-        <div className="left-image-container">
-        <img src={image} alt="Image" className="left-image" />
         </div>
       </div>
     </div>
