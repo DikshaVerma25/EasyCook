@@ -6,6 +6,9 @@
 
   }
   
+.h1 {
+ left: 100px;
+}
 
   .left-image-container {
     position: absolute;

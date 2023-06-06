@@ -7,10 +7,12 @@ function Navbar() {
       <div className="navbar-container">
         <div className="navbar-title">
           <span className="navbar-title-text">EasyCo</span>
+          <div class="navbar-title-line"></div>
+          <div class="navbar-title-circle"></div>
           <span className="navbar-title-symbol">&#x1F372;</span>
           <span className="navbar-title-text">k</span>
-          <hr className="navbar-title-line" />
         </div>
+        <switch>
         <div className="nav-menu">
             <a href="/" className="nav-item nav-link">
               Recipes
@@ -19,6 +21,7 @@ function Navbar() {
           <a href="/about" className="nav-item nav-link">Signup</a>
           <a href="/contact" className="nav-item nav-link">About</a>
         </div>
+        </switch>
       </div>
     </nav>
   );

@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '../components/navbar';
 import "./pages.css";
 
-
 function LandingPage() {
   const imageFolder = "../images/bg/";
-  const imageNames = ["bg-1.avif","bg-2.avif","bg-3.avif","bg-4.jpeg","bg-5.avif","bg-6.avif","bg-7.avif","bg-8.avif","bg-9.avif","bg-10.avif"]; // Array of image names
+  const imageNames = ["bg-1.png","bg-2.avif","bg-3.avif","bg-4.jpeg","bg-5.avif","bg-6.avif","bg-7.avif","bg-8.avif","bg-9.avif","bg-10.avif", "bg-11.avif"]; // Array of image names
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
@@ -31,6 +30,8 @@ function LandingPage() {
       <div className="landing-container">
         <h1>Your Ingredients our recipes</h1>
         <div className="left-image-container">
+        {/* <img src="../images/bg/bg-2.avif" alt="Image" className="left-image" /> */}
+
           <img src={getImageSource()} alt="Image" className="left-image" />
         </div>
         <div className="symbol-container">
