@@ -1,3 +1,5 @@
+
+
 .landing-container {
     display: flex;
     flex-direction: column;
@@ -44,21 +46,21 @@
   }
   
   .turnip {
-    background-image: url('../images/turnip.png');
+    background-image: url('../../images/turnip.png');
     font-size: 20px;
     top: 160px;
     left: 220px;
   }
   
   .grape {
-    background-image: url('../images/grapes.png');
+    background-image: url('../../images/grapes.png');
     font-size: 30px;
     top: 380px;
     left: 620px;
   }
   
   .mango {
-    background-image: url('../images/mango.png');
+    background-image: url('../../images/mango.png');
     font-size: 20px;
     top: 610px;
     left: 220px;

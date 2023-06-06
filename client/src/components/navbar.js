@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import "../components/styles/navbar.css";
 
 function Navbar() {
@@ -6,22 +7,22 @@ function Navbar() {
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-title">
-          <span className="navbar-title-text">EasyCo</span>
+          <Link to="/" className="navbar-title-link">
+            <span className="navbar-title-text">EasyCo</span>
+          </Link>
           <div class="navbar-title-line"></div>
           <div class="navbar-title-circle"></div>
           <span className="navbar-title-symbol">&#x1F372;</span>
           <span className="navbar-title-text">k</span>
         </div>
-        <switch>
         <div className="nav-menu">
-            <a href="/" className="nav-item nav-link">
-              Recipes
+          <Link to="/recipes" className="nav-item nav-link">
+            Recipes
             <span className="dropdown-arrow">&#9662;</span>
-            </a>
-          <a href="/about" className="nav-item nav-link">Signup</a>
-          <a href="/contact" className="nav-item nav-link">About</a>
+          </Link>
+          <Link to="/about" className="nav-item nav-link">Signup</Link>
+          <Link to="/contact" className="nav-item nav-link">About</Link>
         </div>
-        </switch>
       </div>
     </nav>
   );

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/navbar';
-import "./pages.css";
+import "./styles/landing.css";
 
 function LandingPage() {
   const imageFolder = "../images/bg/";

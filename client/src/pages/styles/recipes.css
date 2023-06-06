@@ -1,0 +1,33 @@
+.recipes-page {
+    display: flex;
+  }
+  
+  .search-box {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #000;
+    margin-right: 20px;
+    height: 700px;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+  
+  .add-ingredient-form {
+    margin-bottom: 10px;
+  }
+  
+  .add-ingredient-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .ingredient-list {
+    flex-grow: 1;
+  }
+  
+  .ingredient {
+    margin-bottom: 5px;
+  }
+  
