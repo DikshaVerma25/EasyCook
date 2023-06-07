@@ -13,7 +13,7 @@ function FullRecipePage({ match }) {
           `https://api.spoonacular.com/recipes/${recipeId}/analyzedInstructions`,
           {
             params: {
-              apiKey: 'f5098cf6c3b14c549c3ad15a79fffe14', // Replace with your Spoonacular API key
+              apiKey: '', // Replace with your Spoonacular API key
             },
           }
         );
