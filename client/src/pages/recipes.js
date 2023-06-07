@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../components/navbar';
-import './styles/recipes.css';
+import "./styles/recipes.css"
 
 function RecipesPage() {
   const [ingredients, setIngredients] = useState([]);
@@ -12,14 +13,17 @@ function RecipesPage() {
     // Make API request to retrieve recipes based on ingredients
     const getRecipes = async () => {
       try {
-        const response = await axios.get('https://api.spoonacular.com/recipes/findByIngredients', {
-          params: {
-            ingredients: ingredients.join(','),
-            number: 8,
-            apiKey: 'f5098cf6c3b14c549c3ad15a79fffe14',
-            ignorePantry: false,
-          },
-        });
+        const response = await axios.get(
+          'https://api.spoonacular.com/recipes/findByIngredients',
+          {
+            params: {
+              ingredients: ingredients.join(','),
+              number: 8,
+              apiKey: 'f5098cf6c3b14c549c3ad15a79fffe14', // Replace with your Spoonacular API key
+              ignorePantry: true,
+            },
+          }
+        );
 
         setRecipes(response.data);
       } catch (error) {
@@ -67,10 +71,10 @@ function RecipesPage() {
         </div>
         <div className="recipe-cards">
           {recipes.map((recipe) => (
-            <div key={recipe.id} className="recipe-card">
+            <Link key={recipe.id} to={`/recipe/${recipe.id}`} className="recipe-card">
               <img src={recipe.image} alt={recipe.title} />
               <h3>{recipe.title}</h3>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

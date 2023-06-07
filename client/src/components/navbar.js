@@ -20,8 +20,8 @@ function Navbar() {
             Recipes
             <span className="dropdown-arrow">&#9662;</span>
           </Link>
-          <Link to="/about" className="nav-item nav-link">Signup</Link>
-          <Link to="/contact" className="nav-item nav-link">About</Link>
+          <Link to="/about" className="nav-item nav-link">About</Link>
+          <Link to="/contact" className="nav-item nav-link">Contact</Link>
         </div>
       </div>
     </nav>
