@@ -18,13 +18,17 @@ function RecipesPage() {
     // Make API request to retrieve recipes based on ingredients
     const getRecipes = async () => {
       try {
-        const response = await axios.get('https://api.spoonacular.com/recipes/findByIngredients', {
-          params: {
-            ingredients: ingredients.join(','),
-            apiKey: 'f5098cf6c3b14c549c3ad15a79fffe14',
-            ignorePantry: true,
-          },
-        });
+        const response = await axios.get(
+          'https://api.spoonacular.com/recipes/findByIngredients',
+          {
+            params: {
+              ingredients: ingredients.join(','),
+              number: 8,
+              apiKey: '', // Replace with your Spoonacular API key
+              ignorePantry: true,
+            },
+          }
+        );
 
         setRecipes(response.data);
       } catch (error) {
