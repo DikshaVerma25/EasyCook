@@ -65,7 +65,7 @@
   .search-box {
     width: 300px;
     padding: 20px;
-    border: 1px solid #000;
+    border: 3px solid #000;
     margin-right: 20px;
     height: 700px;
     margin-left: 20px;
@@ -74,6 +74,7 @@
   
   .add-ingredient-form {
     margin-bottom: 10px;
+    border: 2px;
   }
   
   .add-ingredient-input {
@@ -92,20 +93,91 @@
   }
   
   .pagination {
+    margin-top: 1rem;
     display: flex;
     justify-content: center;
-    margin-top: 1rem;
+    align-items: center;
   }
   
   .pagination button {
-    margin: 0.5rem;
-    padding: 0.5rem 1rem;
-    background-color: #f5f5f5;
-    border: 1px solid #ccc;
+    border: none;
+    background: transparent;
+    color: #555;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .pagination button.active {
+    color: #000;
+  }
+  
+  .pagination button i {
+    margin-right: 0.3rem;
+  }
+  
+  .remove-ingredient {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #888;
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+    transition: color 0.3s;
+  }
+  
+  .remove-ingredient:hover {
+    color: #f44336;
+  }
+
+  .confirmation-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  .confirmation-content {
+    background-color: #f5ca76;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .confirmation-buttons {
+    margin-top: 20px;
+  }
+  
+  .confirm-btn,
+  .cancel-btn {
+    padding: 8px 16px;
+    margin: 0 8px;
+    border: none;
     border-radius: 4px;
     cursor: pointer;
   }
   
-  .pagination button.active {
-    background-color: #ccc;
-  } 
+  .confirm-btn {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .cancel-btn {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .no-ingredients-message {
+    text-align: center;
+    padding: 40px;
+    font-size: 18px;
+    color: #2e6736;
+  }
+  

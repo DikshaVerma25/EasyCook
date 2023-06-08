@@ -6,14 +6,13 @@ function FullRecipePage({ match }) {
   const recipeId = match.params.id;
 
   useEffect(() => {
-    // Fetch full recipe details using recipeId
     const fetchRecipe = async () => {
       try {
         const response = await axios.get(
           `https://api.spoonacular.com/recipes/${recipeId}/analyzedInstructions`,
           {
             params: {
-              apiKey: 'f5098cf6c3b14c549c3ad15a79fffe14', // Replace with your Spoonacular API key
+              apiKey: 'f5098cf6c3b14c549c3ad15a79fffe14', 
             },
           }
         );
