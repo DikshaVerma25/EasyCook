@@ -19,7 +19,7 @@ function RecipesPage() {
             params: {
               ingredients: ingredients.join(','),
               number: 8,
-              apiKey: '', // Replace with your Spoonacular API key
+              apiKey: 'f5098cf6c3b14c549c3ad15a79fffe14', // Replace with your Spoonacular API key
               ignorePantry: true,
             },
           }
