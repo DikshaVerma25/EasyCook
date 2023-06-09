@@ -15,7 +15,7 @@ function RecipesPage() {
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
-    // Make API request to retrieve recipes based on ingredients
+    
     const getRecipes = async () => {
       try {
         const response = await axios.get(
