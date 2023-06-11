@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../components/navbar';
 import './styles/recipes.css';
+import "@fortawesome/fontawesome-svg-core"
 
 function RecipesPage() {
   const [ingredients, setIngredients] = useState([]);
@@ -13,19 +14,22 @@ function RecipesPage() {
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [ingredientToRemove, setIngredientToRemove] = useState('');
   const [filter, setFilter] = useState('');
-  const navigate = useNavigate();
 
   useEffect(() => {
-    // Make API request to retrieve recipes based on ingredients
+    
     const getRecipes = async () => {
       try {
-        const response = await axios.get('https://api.spoonacular.com/recipes/findByIngredients', {
-          params: {
-            ingredients: ingredients.join(','),
-            apiKey: 'f5098cf6c3b14c549c3ad15a79fffe14',
-            ignorePantry: true,
-          },
-        });
+        const response = await axios.get(
+          'https://api.spoonacular.com/recipes/findByIngredients',
+          {
+            params: {
+              ingredients: ingredients.join(','),
+              number: 8,
+              apiKey: 'f5098cf6c3b14c549c3ad15a79fffe14', 
+              ignorePantry: true,
+            },
+          }
+        );
 
         setRecipes(response.data);
       } catch (error) {
@@ -74,22 +78,18 @@ function RecipesPage() {
     setFilter(e.target.value);
   };
 
-  // Get current recipes based on filter
+
   const filteredRecipes = filter
     ? recipes.filter((recipe) => recipe.title.toLowerCase().includes(filter.toLowerCase()))
     : recipes;
 
-  // Get current recipes for the current page
+ 
   const indexOfLastRecipe = currentPage * recipesPerPage;
   const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
   const currentRecipes = filteredRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
 
-  // Calculate total number of pages
+  
   const totalPages = Math.ceil(filteredRecipes.length / recipesPerPage);
-
-  const handleRecipeClick = (recipeId) => {
-    navigate(`/recipe/${recipeId}`);
-  };
 
   return (
     <div>
@@ -116,25 +116,29 @@ function RecipesPage() {
             ))}
           </div>
         </div>
-        <div className="recipe-cards">
-          {currentRecipes.length > 0 ? (
-            currentRecipes.map((recipe) => (
-              <div
-                key={recipe.id}
-                className="recipe-card"
-                onClick={() => handleRecipeClick(recipe.id)}
-              >
+        <div className="filter-section">
+          <input
+            type="text"
+            placeholder="Filter recipes"
+            value={filter}
+            onChange={handleFilterChange}
+          />
+        </div>
+        {ingredients.length === 0 ? (
+          <div className="no-ingredients-message">
+            Ready, set, spice it up! Ingredients? Not yet added! But fear not, flavor awaits.
+            Stay tuned as we whip up a recipe search feast that'll leave you craving for more!
+          </div>
+        ) : (
+          <div className="recipe-cards">
+            {currentRecipes.map((recipe) => (
+              <Link key={recipe.id} to={`/recipe/${recipe.id}`} className="recipe-card">
                 <img src={recipe.image} alt={recipe.title} />
                 <h3>{recipe.title}</h3>
-              </div>
-            ))
-          ) : (
-            <div className="no-recipes-message">
-              Ready, set, spice it up! Ingredients? Not yet added! But fear not, flavor awaits.
-              Stay tuned as we whip up a recipe search feast that'll leave you craving for more!
-            </div>
-          )}
-        </div>
+              </Link>
+            ))}
+          </div>
+        )}
         <div className="pagination">
           {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
             <button
@@ -146,6 +150,21 @@ function RecipesPage() {
             </button>
           ))}
         </div>
+        {showConfirmation && (
+          <div className="confirmation-popup">
+            <div className="confirmation-content">
+              <p>Are you sure you want to remove "{ingredientToRemove}"?</p>
+              <div className="confirmation-buttons">
+                <button className="confirm-btn" onClick={confirmRemoveIngredient}>
+                  Yes
+                </button>
+                <button className="cancel-btn" onClick={cancelRemoveIngredient}>
+                  No
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
