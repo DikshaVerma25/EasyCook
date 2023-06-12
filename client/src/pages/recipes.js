@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../components/navbar';
 import './styles/recipes.css';
-// import nltk from nltk.corpus import wordnet
+//import nltk from nltk.corpus 
 
-nltk.download('averaged_perceptron_tagger')
+
+//nltk.download('averaged_perceptron_tagger')
 
 function RecipesPage() {
   const [ingredients, setIngredients] = useState([]);
@@ -71,12 +72,11 @@ function RecipesPage() {
     setShowConfirmation(false);
   };
 
-  // Get current recipes
+  
   const indexOfLastRecipe = currentPage * recipesPerPage;
   const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
   const currentRecipes = recipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
 
-  // Calculate total number of pages
   const totalPages = Math.ceil(recipes.length / recipesPerPage);
 
   return (
