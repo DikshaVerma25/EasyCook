@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../components/navbar';
 import './styles/recipes.css';
@@ -14,6 +14,7 @@ function RecipesPage() {
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [ingredientToRemove, setIngredientToRemove] = useState('');
   const [filter, setFilter] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     
@@ -24,9 +25,8 @@ function RecipesPage() {
           {
             params: {
               ingredients: ingredients.join(','),
-              number: 8,
-              apiKey: 'f5098cf6c3b14c549c3ad15a79fffe14', 
-              ignorePantry: true,
+              apiKey: 'f5098cf6c3b14c549c3ad15a79fffe14', // Replace with your Spoonacular API key
+              ignorePantry: false,
             },
           }
         );
@@ -91,6 +91,10 @@ function RecipesPage() {
   
   const totalPages = Math.ceil(filteredRecipes.length / recipesPerPage);
 
+  const handleRecipeClick = (recipeId) => {
+    navigate(`/recipe/${recipeId}`);
+  };
+
   return (
     <div>
       <Navbar />
@@ -133,7 +137,7 @@ function RecipesPage() {
           <div className="recipe-cards">
             {currentRecipes.map((recipe) => (
               <Link key={recipe.id} to={`/recipe/${recipe.id}`} className="recipe-card">
-                <img src={recipe.image} alt={recipe.title} />
+                <img src={`https://spoonacular.com/recipeImages/${recipe.image}`} alt={recipe.title} />
                 <h3>{recipe.title}</h3>
               </Link>
             ))}
