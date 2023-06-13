@@ -5,6 +5,7 @@ import Navbar from '../components/navbar';
 import './styles/recipes.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
+import Filter from '../components/filter';
 
 //import nltk from nltk.corpus 
 
@@ -19,6 +20,7 @@ function RecipesPage() {
   const [recipesPerPage] = useState(8);
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [ingredientToRemove, setIngredientToRemove] = useState('');
+  const [filteredRecipes, setFilteredRecipes] = useState([]);
 
   useEffect(() => {
     // Make API request to retrieve recipes based on ingredients
@@ -86,10 +88,6 @@ function RecipesPage() {
     <div>
       <Navbar />
       <div className="recipes-page">
-        <div className='filter-icon' onclick= {toogleFilterMenu}>
-          <FontAwesomeIcon icon = {faFilter}
-        </div>
-        {show}
         <div className="search-box">
           <div className="input-section">
             <input
