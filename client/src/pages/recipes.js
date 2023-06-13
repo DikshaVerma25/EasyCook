@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../components/navbar';
 import './styles/recipes.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFilter } from '@fortawesome/free-solid-svg-icons';
+
 //import nltk from nltk.corpus 
 
 
@@ -83,6 +86,10 @@ function RecipesPage() {
     <div>
       <Navbar />
       <div className="recipes-page">
+        <div className='filter-icon' onclick= {toogleFilterMenu}>
+          <FontAwesomeIcon icon = {faFilter}
+        </div>
+        {show}
         <div className="search-box">
           <div className="input-section">
             <input
