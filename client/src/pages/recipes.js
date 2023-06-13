@@ -63,8 +63,11 @@ function RecipesPage() {
   };
 
   const handleRemoveIngredient = (ingredient) => {
-    setIngredientToRemove(ingredient);
-    setShowConfirmation(true);
+    const confirmRemoval = window.confirm(`Are you sure you want to remove "${ingredient}"?`);
+    if (confirmRemoval) {
+      const updatedIngredients = ingredients.filter((item) => item !== ingredient);
+      setIngredients(updatedIngredients);
+    }
   };
 
   const confirmRemoveIngredient = () => {
@@ -100,12 +103,11 @@ function RecipesPage() {
           </div>
           <div className="ingredient-list">
             {ingredients.map((ingredient, index) => (
-              <div key={index} className="ingredient">
-                {ingredient}
-                <button className="remove-ingredient" onClick={() => handleRemoveIngredient(ingredient)}>
-                  <i className="fas fa-times"></i>
-                </button>
-              </div>
+              <RemoveItem
+                key={index}
+                item={ingredient}
+                onRemove={handleRemoveIngredient}
+              />
             ))}
           </div>
         </div>
@@ -153,5 +155,6 @@ function RecipesPage() {
     </div>
   );
 }
+
 
 export default RecipesPage;
