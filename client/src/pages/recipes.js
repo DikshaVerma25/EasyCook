@@ -5,7 +5,7 @@ import Navbar from '../components/navbar';
 import './styles/recipes.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
-import Filter from '../components/filter';
+import RemoveItem from '../components/removeItem';
 
 //import nltk from nltk.corpus 
 
@@ -91,6 +91,9 @@ function RecipesPage() {
     <div>
       <Navbar />
       <div className="recipes-page">
+      <div className="filter-icon">
+          <FontAwesomeIcon icon={faFilter} />
+          </div>
         <div className="search-box">
           <div className="input-section">
             <input
