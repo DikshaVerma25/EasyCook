@@ -19,19 +19,20 @@ async function signup(req, res) {
 async function login(req, res) {
   try {
     const user = await User.findOne({
-      email: req.body.email
+      email: req.body.email,
+      password: req.body.password
     });
     if (!user) {
       return res.status(401).json({
         message: 'Invalid email or password'
       });
     }
-    const isMatch = await user.comparePassword(req.body.password);
-    if (!isMatch) {
-      return res.status(401).json({
-        message: 'Invalid email or password'
-      });
-    }
+    // const isMatch = await user.comparePassword(req.body.password);
+    // if (!isMatch) {
+    //   return res.status(401).json({
+    //     message: 'Invalid email or password'
+    //   });
+    // }
     const token = jwt.createToken(user);
     res.json({
       token

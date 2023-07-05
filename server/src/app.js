@@ -11,15 +11,15 @@ require("dotenv").config();
 const app = express();
 app.use(express.json());
 
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect( process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
   .then(() => console.log('MongoDB connected'))
   .catch(error => console.error(error, "Error conecting to database"));
 
-app.use('/auth', authRoutes);
-app.use('/user', userRoutes);
+app.use('/api', authRoutes);
+app.use('/api', userRoutes);
 
 app.use((req, res) => {
   res.status(404).json({
