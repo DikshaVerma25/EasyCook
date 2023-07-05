@@ -27,12 +27,6 @@ async function login(req, res) {
         message: 'Invalid email or password'
       });
     }
-    // const isMatch = await user.comparePassword(req.body.password);
-    // if (!isMatch) {
-    //   return res.status(401).json({
-    //     message: 'Invalid email or password'
-    //   });
-    // }
     const token = jwt.createToken(user);
     res.json({
       token

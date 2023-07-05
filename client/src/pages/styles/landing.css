@@ -16,7 +16,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: auto;
+    width: 45%;
     height: 100%;
     overflow: hidden;
   }
@@ -37,32 +37,33 @@
   
   .symbol {
     position: absolute;
-    width: 230px;
-    height: 230px;
+    width: 350px;
+    height: 350px;
     margin: 0 10px;
     background-repeat: no-repeat;
     background-size: contain;
-    opacity: 0.2;
+    opacity: 0.6;
   }
   
   .turnip {
-    background-image: url('../../images/turnip.png');
+    background-image: url('../../images/Radish.png');
     font-size: 20px;
-    top: 160px;
+    top: 70px;
     left: 220px;
   }
   
   .grape {
-    background-image: url('../../images/grapes.png');
+    background-image: url('../../images/Grape.png');
     font-size: 30px;
     top: 380px;
-    left: 620px;
+    left: 580px;
   }
   
   .pear {
     background-image: url('../../images/pear.png');
     font-size: 20px;
-    top: 610px;
-    left: 220px;
+    top: 530px;
+    left: 85px;
+
   }
   
