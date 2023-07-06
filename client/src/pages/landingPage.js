@@ -8,6 +8,7 @@ function LandingPage() {
   // const imageFolder = "../images/bg/";
   // const imageNames = ["bg-1.png","bg-2.avif","bg-3.avif","bg-4.jpeg","bg-5.avif","bg-6.avif","bg-7.avif","bg-8.avif","bg-9.avif","bg-10.avif", "bg-11.avif"]; // Array of image names
   // const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  // const [imageSource, setImageSource] = useState(null);
 
   // useEffect(() => {
   //   const interval = setInterval(() => {
@@ -19,20 +20,29 @@ function LandingPage() {
   //   };
   // }, [imageNames.length]);
 
-
+  // useEffect(() => {
   // const getImageSource = async () => {
-  //   const currentImageName = await imageNames[currentImageIndex];
-  //   return `${imageFolder}${currentImageName}`;
+  //   const currentImageName = imageNames[currentImageIndex];
+  //   const response = await fetch(`${imageFolder}${currentImageName}`);
+  //   const blob = await response.blob();
+  //   const objectURL = URL.createObjectURL(blob);
+  //   return objectURL;
   // };
-
-  // console.log(image);
+  // getImageSource();
+  // return () => URL.revokeObjectURL(imageSource);
+  // },[currentImageIndex, imageNames , imageFolder]);
+  // // console.log(image);
   return (
     <div>
       <Navbar />
       <div className="landing-container">
-        <h1>Your Ingredients our recipes</h1>
-        <div className="left-image-container">
-        <img src= {Image} alt="Image" className="left-image" />
+        <div className= "text-left">
+        <h1 style={{fontSize : "5rem"}}><span>Your</span> Ingredients, <span>Our</span> recipes!</h1>
+        <p style= {{color: "#482D30"}}>Discover delicious recipes tailored to your ingredients. Simply enter the items you have and we'll find the perfect recipes that match your selection.</p>
+        <button className="get-started-button">Explore Recipes</button>
+        </div>
+        <div className="right-image-container">
+        <img src={Image} alt="Image" className="right-image" />
         </div>
         {/* <ImageContainer /> */}
         <div className="symbol-container">
