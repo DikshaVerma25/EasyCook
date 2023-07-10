@@ -92,9 +92,15 @@ span {
   border: 2px solid #383747;
   border-radius: 18px;
   cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .get-started-button:hover {
   background-color: #FAA41A;
   color: #FFFFFF;
+}
+
+#get-started-text {
+  text-decoration: none; 
+  color: inherit;
 }

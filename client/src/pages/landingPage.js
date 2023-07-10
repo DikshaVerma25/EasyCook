@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/navbar';
+import { Link } from 'react-router-dom';
 import ImageContainer from '../components/FetchImage';
 import Image from "../images/bg/bg-2.avif"
 import "./styles/landing.css";
@@ -39,7 +40,9 @@ function LandingPage() {
         <div className= "text-left">
         <h1 style={{fontSize : "5rem"}}><span>Your</span> Ingredients, <span>Our</span> recipes!</h1>
         <p style= {{color: "#482D30"}}>Discover delicious recipes tailored to your ingredients. Simply enter the items you have and we'll find the perfect recipes that match your selection.</p>
-        <button className="get-started-button">Explore Recipes</button>
+        <button className="get-started-button">
+        <Link to="/recipes" id= "get-started-text">Explore Recipes</Link>
+        </button>
         </div>
         <div className="right-image-container">
         <img src={Image} alt="Image" className="right-image" />

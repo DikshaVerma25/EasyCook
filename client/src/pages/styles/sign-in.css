@@ -1,0 +1,32 @@
+.left-image-container {
+    display: block;
+    position: absolute;
+    width: 40%;
+    height: 77%;
+    overflow: hidden;
+    top: 7rem;
+    left: 15rem;
+    right: 1.2rem;
+    bottom: 1.2rem;
+  }
+  
+  .left-image {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    border: 3.7px solid #5F363A;
+    border-radius: 10% 10% 10% 10%;
+    object-fit: cover;
+  }
+
+.box-container {
+    display: block;
+    position: absolute;
+    width: 40%;
+    height: 77%;
+    overflow: hidden;
+    top: 7rem;
+    right: 15rem;
+    left: 40rem;
+    bottom: 1.2rem;
+  }
