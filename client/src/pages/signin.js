@@ -1,23 +1,29 @@
 import React from 'react';
-import Navbar from '../components/navbar.js';
-import Image from "../images/sign-in.jpg";
 import "./styles/sign-in.css";
+import Image from "../images/sign-in.jpg";
 
-function SignInPage() {
+function SignIn({ closeSignInModal }) {
+  const handleSignIn = () => {
+    
+    closeSignInModal();
+  };
 
-return (
-    <div>
-      <Navbar />
-      <div className="sign-in-container">
+  return (
+    <div className="sign-in-modal">
         <div className="left-image-container">
           <img src={Image} alt="Image" className="left-image" />
-          <div className="box-container">
-            <h1>Create an account</h1>
-          </div>
         </div>
-      </div>
+        <div className="right-content">
+        <h1 id= "modal-title">Discover EasyCook</h1>
+        <h3 id="description">Where Delicious Recipes Meet Sustainability</h3>
+        <form>
+          <input type="text" placeholder="Username" />
+          <input type="password" placeholder="Password" />
+          <button onClick={handleSignIn}>Sign In</button>
+        </form>
+        </div>
     </div>
   );
 }
 
-export default SignInPage;
+export default SignIn;

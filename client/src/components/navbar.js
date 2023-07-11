@@ -1,20 +1,23 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "../components/styles/navbar.css";
+import SignIn from '../pages/signin';
 import Logo from "../images/Logo.svg"
 
 
 function Navbar() {
 
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
 
-  const handleDropdownToggle = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+  const handleSignInModalToggle = () => {
+    setIsSignInModalOpen(!isSignInModalOpen);
   };
 
-  const closeDropdown = () => {
-    setIsDropdownOpen(false);
+  const closeSignInModal = () => {
+    setIsSignInModalOpen(false);
   };
+
+
 
   return (
     <nav className="navbar">
@@ -29,13 +32,15 @@ function Navbar() {
           <Link to="/recipes" className="nav-item nav-link">
             Recipes
           </Link>
-          <Link to="/sign-in" className="nav-item nav-link">Sign in</Link>
+          <Link to="#" className="nav-item nav-link" onClick={handleSignInModalToggle}>
+            Sign in
+          </Link>
           <Link to="/about" className="nav-item nav-link">About</Link>
         </div>
+        {isSignInModalOpen && <SignIn closeSignInModal={closeSignInModal} />}
       </div>
     </nav>
   );
 }
 
 export default Navbar;
-
