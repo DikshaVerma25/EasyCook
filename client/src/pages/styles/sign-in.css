@@ -13,15 +13,6 @@
     display:flex;
     justify-content: flex-end;
   }
-  
-  /* .sign-in-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-  } */
-
 
 
 .left-image-container {
@@ -47,9 +38,32 @@
 .right-content{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 7rem;
 }
 
-/* #modal-title {
-    top: 5rem;
-    right: 0rem;
-} */
+#modal-title {
+    margin-bottom: 1px;
+  }
+  
+
+form {
+    margin-top: 4rem; 
+  }
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px; 
+  }
+  
+  .form-row input {
+    flex-basis: 48%; 
+    margin-right: 8px
+  }
+
+  .create-account-button {
+    display: block;
+    margin: 0 auto;
+  }
