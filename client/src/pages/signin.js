@@ -3,10 +3,17 @@ import Image from "../images/sign-in.jpg";
 import React, { useEffect, useState } from 'react';
 import Login from './login';
 
-function SignIn({ closeSignInModal , openLoginModal}) {
+function SignIn({ closeSignInModal, openLoginModal }) {
   const [showLogin, setShowLogin] = useState(false);
 
-  
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [reEnteredPassword, setReEnteredPassword] = useState('');
+  const [passwordMatch, setPasswordMatch] = useState(true);
+  const [passwordFieldsEntered, setPasswordFieldsEntered] = useState(false);
+  const [emailValid, setEmailValid] = useState(true);
+  const [fieldsEntered, setFieldsEntered] = useState(false);
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (!document.querySelector(".sign-in-modal").contains(event.target)) {
@@ -23,6 +30,30 @@ function SignIn({ closeSignInModal , openLoginModal}) {
 
   const handleLoginLinkClick = () => {
     setShowLogin(true);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+    setPasswordMatch(event.target.value === reEnteredPassword);
+    setPasswordFieldsEntered(event.target.value !== '' && reEnteredPassword !== '');
+  };
+
+  const handleReEnteredPasswordChange = (event) => {
+    setReEnteredPassword(event.target.value);
+    setPasswordMatch(event.target.value === password);
+    setPasswordFieldsEntered(event.target.value !== '' && password !== '');
+  };
+
+  const handleEmailChange = (event) => {
+    const enteredEmail = event.target.value;
+    setEmail(enteredEmail);
+    setFieldsEntered(true);
+    setEmailValid(validateEmail(enteredEmail));
+  };
+
+  const validateEmail = (email) => {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
   };
 
   return (
@@ -48,12 +79,35 @@ function SignIn({ closeSignInModal , openLoginModal}) {
               <input type="text" placeholder="Last Name" />
             </div>
             <div className="form-row">
-              <input type="email" placeholder="Email" />
+              <input type="email" placeholder="Email" value={email} onChange={handleEmailChange} />
+              {!emailValid && fieldsEntered && <p className="error-message">Enter a valid email address</p>}
             </div>
             <div className="form-row">
               <div className="password-row">
-                <input type="password" placeholder="Password" />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={handlePasswordChange}
+                />
+                <input
+                  type="password"
+                  placeholder="Re-enter Password"
+                  value={reEnteredPassword}
+                  onChange={handleReEnteredPasswordChange}
+                />
               </div>
+            </div>
+            <div className="form-row">
+              {passwordFieldsEntered && (
+                <div className="password">
+                  {passwordMatch ? (
+                    <p className="password-match-text">Passwords match</p>
+                  ) : (
+                    <p className="password-mismatch-text">Passwords do not match</p>
+                  )}
+                </div>
+              )}
             </div>
             <div className="form-row">
               <button className="create-account-button" onClick={handleLoginLinkClick}>
@@ -61,9 +115,9 @@ function SignIn({ closeSignInModal , openLoginModal}) {
               </button>
             </div>
             <div className="form-row">
-                <span className="login-link" onClick={handleLoginLinkClick}>
+              <span className="login-link" onClick={handleLoginLinkClick}>
                 Already have an account
-                </span>
+              </span>
             </div>
           </form>
         )}

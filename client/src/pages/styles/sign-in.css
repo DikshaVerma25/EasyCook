@@ -73,7 +73,7 @@ form {
     padding: 10px;
     color: #383747; 
     /* background-color: #F1EFEF;  */
-    margin-bottom: 5px;
+    margin-bottom: 7px;
   }
 
   .create-account-button {
@@ -100,9 +100,10 @@ form {
 
   .login-link{
     text-decoration: none;
-    position: absolute;
-    bottom: 17rem;
-    right: 14rem;
+    display: block;
+    position: relative;
+    top: -1rem;
+    right: -8rem;
     color: #888;
     text-align: center;
     margin-top: auto;
@@ -111,3 +112,23 @@ form {
   .login-link:hover {
     color: #999;
   }
+
+.password{
+  margin-top: -10px;
+  font-size: 11px;
+}
+
+.password-mismatch-text{
+  color: #EE4B2B;
+}
+
+.password-match-text{
+  color: #008000;
+}
+
+.error-message{
+  margin-top: 0.8rem;
+  margin-right: 5rem;
+  font-size: 11px;
+  color: #EE4B2B;
+}
