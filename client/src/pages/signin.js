@@ -6,6 +6,8 @@ import Login from './login';
 function SignIn({ closeSignInModal, openLoginModal }) {
   const [showLogin, setShowLogin] = useState(false);
 
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [reEnteredPassword, setReEnteredPassword] = useState('');
@@ -32,6 +34,23 @@ function SignIn({ closeSignInModal, openLoginModal }) {
     setShowLogin(true);
   };
 
+  const handleFirstNameChange = (event) => {
+    setFirstName(event.target.value);
+    setFieldsEntered(true);
+  };
+
+  const handleLastNameChange = (event) => {
+    setLastName(event.target.value);
+    setFieldsEntered(true);
+  };
+
+  const handleEmailChange = (event) => {
+    const enteredEmail = event.target.value;
+    setEmail(enteredEmail);
+    setFieldsEntered(true);
+    setEmailValid(validateEmail(enteredEmail));
+  };
+
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
     setPasswordMatch(event.target.value === reEnteredPassword);
@@ -44,17 +63,45 @@ function SignIn({ closeSignInModal, openLoginModal }) {
     setPasswordFieldsEntered(event.target.value !== '' && password !== '');
   };
 
-  const handleEmailChange = (event) => {
-    const enteredEmail = event.target.value;
-    setEmail(enteredEmail);
-    setFieldsEntered(true);
-    setEmailValid(validateEmail(enteredEmail));
-  };
-
   const validateEmail = (email) => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailPattern.test(email);
   };
+
+
+  const handleCreateAccount = () => {
+    const userData = {
+      firstName,
+      lastName,
+      email,
+      password
+    };
+
+   
+    fetch('http://localhost:3000/api/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(userData)
+    })
+    .then(response => response.json())
+    .then(data => {
+    
+      console.log(data);
+      if (data.success) {
+       
+        alert('Account created successfully. You are now logged in!');
+      } else {
+        
+        alert('Account creation failed. Please try again.');
+      }
+    })
+    .catch(error => {
+      console.error(error);
+    });
+};
+
 
   return (
     <div className="sign-in-modal">
@@ -110,7 +157,7 @@ function SignIn({ closeSignInModal, openLoginModal }) {
               )}
             </div>
             <div className="form-row">
-              <button className="create-account-button" onClick={handleLoginLinkClick}>
+              <button className="create-account-button" onClick={handleCreateAccount}>
                 Create Account
               </button>
             </div>
