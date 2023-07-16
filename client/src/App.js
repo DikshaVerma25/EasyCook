@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import LandingPage from './pages/landingPage';
 import RecipesPage from './pages/recipes';
 import SignIn from './pages/signin';
+import Login from './pages/login'
 import AboutPage from './pages/about';
 import FullRecipePage from './components/fullrecipe';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -18,6 +19,7 @@ function App() {
         <Route path="/recipes" element={<RecipesPage />} />
         <Route path="/recipe/:id" component={FullRecipePage} />
         <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/login" element= {< Login/>} />
         <Route path="/about" element={<AboutPage />} />  
       </Routes>
     </Router>
