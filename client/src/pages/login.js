@@ -2,14 +2,15 @@ import "./styles/login.css";
 import Image from "../images/sign-in.jpg";
 import React, { useEffect } from 'react';
 
-function Login({ closeSignInModal, openSignInModal }) {
+function Login({ closeSignInModal }) {
   const handleLogin = () => {
     closeSignInModal();
   };
 
   const handleRegisterLinkClick = () => {
-    openSignInModal();
     closeSignInModal();
+    // Handle the click on "Register" link
+    // You can open the sign-in modal here
   };
 
   useEffect(() => {
@@ -24,7 +25,7 @@ function Login({ closeSignInModal, openSignInModal }) {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  }, [closeSignInModal]);
 
   return (
     <div className="sign-in-modal">

@@ -19,7 +19,7 @@ function SignIn({ closeSignInModal , openLoginModal}) {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  }, [closeSignInModal]);
 
   const handleLoginLinkClick = () => {
     setShowLogin(true);
@@ -40,7 +40,7 @@ function SignIn({ closeSignInModal , openLoginModal}) {
         <h7 id="description">Where Delicious Recipes Meet Sustainability</h7>
 
         {showLogin ? (
-          <Login closeSignInModal={closeSignInModal} />
+          <Login closeSignInModal={closeSignInModal} openSignInModal={openLoginModal} />
         ) : (
           <form>
             <div className="form-row">

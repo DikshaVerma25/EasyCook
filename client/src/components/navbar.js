@@ -47,8 +47,12 @@ function Navbar() {
           </Link>
           <Link to="/about" className="nav-item nav-link">About</Link>
         </div>
-        {isSignInModalOpen && <SignIn closeSignInModal={closeSignInModal} />}
-        {isLoginModalOpen && <Login closeLoginModal={closeLoginModal} />}
+        {isSignInModalOpen && (
+        <SignIn closeSignInModal={closeSignInModal} openLoginModal={handleLoginModalToggle} />
+      )}
+      {isLoginModalOpen && (
+        <Login closeSignInModal={closeSignInModal} openSignInModal={handleSignInModalToggle} />
+      )}
       </div>
     </nav>
   );
